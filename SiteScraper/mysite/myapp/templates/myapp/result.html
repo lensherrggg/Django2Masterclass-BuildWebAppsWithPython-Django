@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="site" id="site" placeholder="enter site address">
+            <button type="submit">Scrape</button>
+            <a href="/delete">Delete</a>
+        </form>
+
+        {% for link in data %}
+            <p>{{ link.name }} -> {{ link.address }}</p>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>
